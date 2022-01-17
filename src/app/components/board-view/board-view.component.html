@@ -1,0 +1,28 @@
+
+<ngx-chess-board #board [size]="size" [lightTileColor]="lightTileColor" (moveChange)="moveCallback.emit($event)"
+  [dragDisabled]="dragDisabled"
+  [drawDisabled]="drawDisabled"
+  [darkTileColor]="darkTileColor"
+  ></ngx-chess-board>
+  <!-- <iframe src="../chess-view/chess-view.component.html"></iframe> -->
+<div class="actions">
+  <button
+  class="btn btn-primary"
+  (click)="resetBoard($event)"
+>
+  Reset
+</button>
+<button
+  class="btn btn-info"
+  (click)="undoTask($event)"
+>
+  Undo
+</button>
+<!-- {{change}} -->
+<!-- <button *ngIf="change"
+  class="btn btn-success"
+>
+  Latest
+</button> -->
+</div>
+

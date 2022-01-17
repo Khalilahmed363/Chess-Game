@@ -1,0 +1,13 @@
+
+<ng-container class="main">
+<mat-toolbar color="primary">
+  <mat-icon>horizontal_split</mat-icon>
+  <span>{{title}}</span>
+</mat-toolbar>
+<mat-grid-list cols="2" rowHeight="1:1">
+  <mat-grid-tile><app-board-view (moveCallback)="moveCallback($event)" (reset)="reset($event)" [change]="change" (undo)="undo($event)" ></app-board-view></mat-grid-tile>
+  <mat-grid-tile><app-board-view (moveCallback)="moveCallback($event)" (reset)="reset($event)" [change]="change" (undo)="undo($event)"></app-board-view></mat-grid-tile>
+</mat-grid-list>
+
+</ng-container>
+
