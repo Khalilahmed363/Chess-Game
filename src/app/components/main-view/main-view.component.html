@@ -3,11 +3,15 @@
 <mat-toolbar color="primary">
   <mat-icon>horizontal_split</mat-icon>
   <span>{{title}}</span>
+  <!-- <button (click)="openConfirmationDialog()">Click me</button> -->
 </mat-toolbar>
 <mat-grid-list cols="2" rowHeight="1:1">
-  <mat-grid-tile><app-board-view (moveCallback)="moveCallback($event)" (reset)="reset($event)" [change]="change" (undo)="undo($event)" ></app-board-view></mat-grid-tile>
-  <mat-grid-tile><app-board-view (moveCallback)="moveCallback($event)" (reset)="reset($event)" [change]="change" (undo)="undo($event)"></app-board-view></mat-grid-tile>
+  <mat-grid-tile><app-board-view backGround="rgb(241, 215, 220)" player="Player One" (moveCallback)="moveCallback($event)" (reset)="reset($event)" [change]="change" (undo)="undo($event)" ></app-board-view></mat-grid-tile>
+  <mat-grid-tile><app-board-view backGround="rgb(170, 200, 219)" player="Player Two" (moveCallback)="moveCallback($event)" (reset)="reset($event)" [change]="change" (undo)="undo($event)"></app-board-view></mat-grid-tile>
 </mat-grid-list>
-
+<!-- <span>
+  <app-board-view backGround="rgb(241, 215, 220)" player="Player One" (moveCallback)="moveCallback($event)" (reset)="reset($event)" [change]="change" (undo)="undo($event)" ></app-board-view>
+  <app-board-view backGround="rgb(170, 200, 219)" player="Player Two" (moveCallback)="moveCallback($event)" (reset)="reset($event)" [change]="change" (undo)="undo($event)"></app-board-view>
+</span> -->
 </ng-container>
 

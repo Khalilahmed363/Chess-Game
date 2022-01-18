@@ -1,11 +1,35 @@
+<!-- <div .mat-h2>
+  {{player}}
+</div> -->
+<!-- <ngx-chess-board #board [size]="size" [lightTileColor]="lightTileColor" (moveChange)="moveCallback.emit($event)"
+  [dragDisabled]="dragDisabled"
+  [drawDisabled]="drawDisabled"
+  [darkTileColor]="darkTileColor"
+  ></ngx-chess-board> -->
 
-<ngx-chess-board #board [size]="size" [lightTileColor]="lightTileColor" (moveChange)="moveCallback.emit($event)"
+  <mat-card class="card" [style.backgroundColor]="backGround">
+    <mat-card-header>
+      <mat-card-title>{{player}}</mat-card-title>
+    </mat-card-header>
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <mat-card-content >
+    <ngx-chess-board #board [size]="size" [lightTileColor]="lightTileColor" (moveChange)="moveCallback.emit($event)"
   [dragDisabled]="dragDisabled"
   [drawDisabled]="drawDisabled"
   [darkTileColor]="darkTileColor"
   ></ngx-chess-board>
-  <!-- <iframe src="../chess-view/chess-view.component.html"></iframe> -->
-<div class="actions">
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <button mat-button (click)="resetBoard($event)"
+       class="btn btn-primary">RESET</button>
+      <button mat-button  class="btn btn-success"
+      (click)="undoTask($event)" >UNDO</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <!-- <iframe src="http://localhost:4200/chess"></iframe> -->
+<!-- <div class="actions">
   <button
   class="btn btn-primary"
   (click)="resetBoard($event)"
@@ -13,16 +37,15 @@
   Reset
 </button>
 <button
-  class="btn btn-info"
+  class="btn btn-primary"
   (click)="undoTask($event)"
 >
   Undo
 </button>
-<!-- {{change}} -->
-<!-- <button *ngIf="change"
+<button
   class="btn btn-success"
 >
   Latest
-</button> -->
-</div>
+</button>
+</div> -->
 

@@ -11,13 +11,17 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { BoardViewComponent } from './components/board-view/board-view.component'
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatDividerModule} from '@angular/material/divider';
+import { BoardViewComponent } from './components/board-view/board-view.component';
+import {MatCardModule} from '@angular/material/card';
 // import { initializeApp } from "firebase/app";
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getAnalytics } from "firebase/analytics";
 
 import { firebaseConfig } from 'src/environments/environment';
+import { ResetConfirmationComponent } from './components/reset-confirmation/reset-confirmation.component';
 
 // const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
@@ -26,6 +30,7 @@ import { firebaseConfig } from 'src/environments/environment';
     AppComponent,
     MainViewComponent,
     BoardViewComponent,
+    ResetConfirmationComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,11 +40,15 @@ import { firebaseConfig } from 'src/environments/environment';
     MatSliderModule,
     MatGridListModule,
     MatIconModule,
+    MatCardModule,
     MatToolbarModule,
+    MatDialogModule,
+    MatDividerModule,
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideFirestore(() => getFirestore())
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ResetConfirmationComponent]
 })
 export class AppModule { }

@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full'},
   { path: 'mainpage', component: MainViewComponent},
   { path: 'chess', component: BoardViewComponent},
+  // { path: 'chess', component: ChessComponent},
   { path: '**' , component : MainViewComponent},
 ];
 

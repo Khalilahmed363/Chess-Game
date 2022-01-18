@@ -5,3 +5,13 @@
 /* ngx-chess-board{
   width: fit-content;
 } */
+
+iframe{
+  width: fit-content;
+  height: fit-content;
+
+}
+.card{
+  /* background-color: brown; */
+  /* background-color: var(backGround); */
+}
