@@ -15,12 +15,15 @@ export class MainViewComponent implements OnInit {
   dialogRef!: MatDialogRef<ResetConfirmationComponent>;
   title: string = 'Chess Game';
   change: any;
+  move: boolean = false;
   constructor(public dialog: MatDialog) {
     if (window.addEventListener) {
       window.addEventListener("message", this.receiveMessage.bind(this), false);
-    } else {
-       (<any>window).attachEvent("onmessage", this.receiveMessage.bind(this));
     }
+    // else {
+    //    (<any>window).attachEvent("onmessage", this.receiveMessage.bind(this));
+    //    console.log('here')
+    // }
   }
 
   ngOnInit(): void {
@@ -29,39 +32,31 @@ export class MainViewComponent implements OnInit {
   receiveMessage(event: any)
   {
     console.log('in recieve message',event)
+    let data = JSON.parse(event.data)
+    console.log(data)
+    // if(data.player){
+    //   // console.log('here',event)
+    //   // window.postMessage(event.data, "*")
+    // }
 
-
-    if (event.origin !== "http://localhost:3000")
-      return;
-    // localStorage.setItem("token", event.data.token);
-    // localStorage.setItem("username", event.data.username);
-    // window.postMessage("success", "*");
-    // // return
-    // console.log(event)
   }
 
+
   openConfirmationDialog() {
-    // console.log('hahhfksdash')
-    let data = JSON.stringify({"name": 'Khalil'})
-    console.log(data)
-    window.postMessage(data, "*");
-    console.log('here')
 
 
-    // this.dialogRef = this.dialog.open(ResetConfirmationComponent, {
-    //   width: '300px',
-    //   height: '150px',
-    //   disableClose: true
-    // });
-    // // this.dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete?"
+    this.dialogRef = this.dialog.open(ResetConfirmationComponent, {
+      width: '300px',
+      height: '150px',
+      disableClose: true
+    });
 
-    // this.dialogRef.afterClosed().subscribe(result => {
-    //   console.log(result)
-    //   if(result) {
-    //     // do confirmation actions
-    //   }
-    //   // this.dialogRef = null;
-    // });
+    this.dialogRef.afterClosed().subscribe(result => {
+      console.log(result)
+      if(result) {
+      }
+      // this.dialogRef = null;
+    });
   }
 
   moveCallback(e : any){

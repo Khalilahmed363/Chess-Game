@@ -50,17 +50,19 @@ export class BoardViewComponent implements OnInit {
   constructor(private ngxChessBoardService: NgxChessBoardService) {
     if (window.addEventListener) {
       window.addEventListener("message", this.receiveMessage, false);
-    } else {
-       (<any>window).attachEvent("onmessage", this.receiveMessage);
     }
+    //  else {
+    //    (<any>window).attachEvent("onmessage", this.receiveMessage);
+    // }
   }
 
 
   ngOnInit() {
-    console.log(this.backGround)
   }
 
+// moveCallback(){
 
+// }
   receiveMessage(event: any)
     {
       console.log('in recieve message',event)
@@ -74,19 +76,24 @@ export class BoardViewComponent implements OnInit {
       // console.log(event)
     }
 
-    // ngAfterViewChecked() {
-
-    //   console.log('ngAfterViewChecked')
-    // }
 
 
+    move(e: any){
+    console.log(e)
+    e.player = this.player
+    window.postMessage(JSON.stringify(e), "*")
+    // this.moveCallback.emit(e)
 
+    }
 
   // history(check: MoveChange) {
   //   console.log(check);
   // }
   resetBoard(e: any) {
-    // this.history(e);
+    console.log(e)
+    let temp = JSON.stringify(e)
+    console.log(temp)
+    window.postMessage(temp, "*");
     console.log(e);
     this.reset.emit(e);
     this.board.reset();
